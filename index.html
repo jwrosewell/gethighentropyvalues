@@ -14,7 +14,7 @@
             "platformVersion",
             "fullVersionList",
         ])
-        .then((values) => addText("getHighEntropyValues", JSON.stringify(values)));
+        .then((values) => addText("getHighEntropyValues: " + JSON.stringify(values)));
 
         window.onload = function() {
             fod.complete(function (data) {
