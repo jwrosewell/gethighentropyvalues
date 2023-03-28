@@ -7,6 +7,15 @@
     </body>
     <script async src="https://51dcloud-eastus.azurewebsites.net/api/v4/AQS5HKcyjXPwO-Iu20g.js"></script>
     <script type="text/javascript">
+        navigator.userAgentData
+        .getHighEntropyValues([
+            "architecture",
+            "model",
+            "platformVersion",
+            "fullVersionList",
+        ])
+        .then((values) => addText("getHighEntropyValues", JSON.stringify(values)));
+
         window.onload = function() {
             fod.complete(function (data) {
                 // Fetch the properties from the JSON response and write to the page.
