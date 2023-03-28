@@ -11,7 +11,12 @@
         function listCookies() {
             var theCookies = document.cookie.split(';');
             for (var i = 1 ; i <= theCookies.length; i++) {
-                addText(i + ' ' + theCookies[i-1]);
+                const cookie = theCookies[i-1];
+                addText(i + ': ' + cookie);
+                const parts = cookie.split("=");
+                if (parts.length == 2) {
+                    addText(i + ': ' + atob(parts[1]));
+                }
             }
         }
 
