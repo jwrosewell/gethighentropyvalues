@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>51Degrees cloud example</h1>
+        <button type="button" onclick="buttonClicked()">Use my location</button>
+        <div id="htmlExampleOutput"></div>
+    </body>
+    <script async src="https://51dcloud-eastus.azurewebsites.net/api/v4/AQS5HKcyjXPwO-Iu20g.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            fod.complete(function (data) {
+                // Fetch the properties from the JSON response and write to the page.
+                addText("HardwareVendor: " + data.device["hardwarevendor"]);
+                addText("SetHeaderHardwareAccept-CH: " + data.device["setheaderhardwareaccept-ch"]);
+                addText("SetHeaderBrowserAccept-CH: " + data.device["setheaderbrowseraccept-ch"]);
+                addText("JavascriptGetHighEntropyValues: " + data.device["javascriptgethighentropyvalues"]);
+                addText("IsMobile: " + data.device["ismobile"]);
+                addText("HardwareModel: " + data.device["hardwaremodel"]);
+                addText("HardwareName: " + data.device["hardwarename"]);
+                addText("DeviceType: " + data.device["devicetype"]);
+                addText("HardwareRank: " + data.device["hardwarerank"]);
+            });
+        }
+        addText = function(text) {
+            document.getElementById("htmlExampleOutput").innerHTML+=text + "<br>";
+        }
+    </script>
+</html>
