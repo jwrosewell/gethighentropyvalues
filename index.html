@@ -7,6 +7,14 @@
     </body>
     <script async src="https://51dcloud-eastus.azurewebsites.net/api/v4/AQS5HKcyjXPwO-Iu20g.js"></script>
     <script type="text/javascript">
+
+        function listCookies() {
+            var theCookies = document.cookie.split(';');
+            for (var i = 1 ; i <= theCookies.length; i++) {
+                addText(i + ' ' + theCookies[i-1]);
+            }
+        }
+
         navigator.userAgentData
         .getHighEntropyValues([
             "architecture",
@@ -15,6 +23,7 @@
             "fullVersionList",
         ])
         .then((values) => addText("getHighEntropyValues: " + JSON.stringify(values)));
+
 
         window.onload = function() {
             fod.complete(function (data) {
@@ -28,6 +37,7 @@
                 addText("HardwareName: " + data.device["hardwarename"]);
                 addText("DeviceType: " + data.device["devicetype"]);
                 addText("HardwareRank: " + data.device["hardwarerank"]);
+                listCookies();
             });
         }
         addText = function(text) {
